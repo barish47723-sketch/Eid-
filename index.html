@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eid Surprise</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle, #1a2a3a, #0f2027);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* ✨ Sparkle animation */
+.sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: gold;
+    border-radius: 50%;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* 🎁 First screen */
+#welcomeScreen {
+    padding: 100px 20px;
+    animation: fadeIn 2s;
+}
+
+h1 {
+    font-size: 45px;
+    color: gold;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    background: gold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: orange;
+    transform: scale(1.1);
+}
+
+/* 🌙 Main content */
+#mainContent {
+    display: none;
+    animation: fadeInZoom 1.5s ease;
+}
+
+.card {
+    background: rgba(255,255,255,0.1);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInZoom {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color:radial-gradient(circle, #1a2a3a, #0f2027);
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- ✨ Sparkles -->
+<script>
+for(let i=0;i<30;i++){
+    let s=document.createElement("div");
+    s.className="sparkle";
+    s.style.left=Math.random()*100+"%";
+    s.style.animationDuration=(Math.random()*3+2)+"s";
+    document.body.appendChild(s);
+}
+</script>
+
+<!-- 🎁 First Screen -->
+<div id="welcomeScreen">
+    <h1>🎁 EID al-Fitr</h1>
+    <button onclick="openEid()">EID Ul-fitr prayer details🕌</button>
+    <h2>greeting ramzan 🌙</h2>
+    <h3>🌙 Eid ul-Fitr Sunnah </h3> <h4>
+1.Eat dates before going for the Eid prayer (preferably in odd numbers). <br>
+2.Perform Ghusl (take a bath) and maintain cleanliness before the prayer. <br>
+3.Wear your best and clean clothes on Eid day. <br>
+4.Go early to the Eid prayer and pray in congregation. <br>
+5.Recite the Takbir (“Allahu Akbar…”) on the way to the prayer. <br>
+6.Use one route to go and a different route to return from the prayer. <br>
+7.Give Zakat al-Fitr before the Eid prayer to help the poor. <br>
+8.Do not fast on the day of Eid and celebrate with happiness.</h4>
+ <p style="text-align: center;
+ padding-top: 50px;">created by BAARI</p>
+
+</div>
+
+<!-- 🌙 Main Content -->
+<div id="mainContent">
+
+    <h1>🌙 Eid Mubarak 🌙</h1>
+    <p>May Allah fill your life with happiness and نور ✨</p>
+
+    <div class="card">
+        <h2>ASSALAMU ALAIKUM</h2>
+        <h2>🕌 Prayer Timing</h2>
+        <h2>girls:08:00/AM <br>boys:09:00/AM</h2>
+        <h2>place:P.R PATTINAM,Jumma masjid 🕌</h2>
+
+        
+        
+    </div>
+
+    <div class="card">
+        <h2>📿 Eid Special Dua</h2>
+        <p>
+          اللَّهُمَّ تَقَبَّلْ مِنَّا وَمِنكُمْ وَاجْعَلْنَا مِنَ الصَّالِحِينَ وَاغْفِرْ لَنَا وَلِوَالِدِينَا
+      <br>
+          Allahumma taqabbal minna wa minkum,
+waj‘alna mina as-saliheen,
+waghfir lana wa li walidayna  
+        </p>
+    </div>
+
+</div>
+
+<!-- 🎵 Audio -->
+<audio id="eidAudio">
+    <source src="https://www.nooresunnat.com/Audio/Others/Eid%20Takbeer%20-%20Allahu%20Akbar%20Kabira.MP3" type="audio/mpeg">
+</audio>
+
+   
+
+<script>
+function openEid(){
+    document.getElementById("welcomeScreen").style.display="none";
+    document.getElementById("mainContent").style.display="block";
+
+    // play sound
+    document.getElementById("eidAudio").play();
+}
+
+
+
+</script>
+
+</body>
+</html>

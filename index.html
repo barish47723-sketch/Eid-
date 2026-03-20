@@ -12,7 +12,7 @@ body {
     background: radial-gradient(circle, #1a2a3a, #0f2027);
     color: white;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* ✨ Sparkle animation */
@@ -32,41 +32,46 @@ body {
 
 /* 🎁 First screen */
 #welcomeScreen {
-    padding: 100px 20px;
-    animation: fadeIn 2s;
+    padding: 50px 15px;
 }
 
 h1 {
-    font-size: 45px;
+    font-size: 28px;
     color: gold;
 }
 
-button {
-    padding: 15px 30px;
-    font-size: 20px;
-    background: gold;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.3s;
+h2 { font-size: 18px; }
+h3 { font-size: 17px; }
+h4 { 
+    font-size: 14px; 
+    line-height: 1.6; 
 }
 
-button:hover {
-    background: orange;
-    transform: scale(1.1);
+/* Button */
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background: gold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px 0;
 }
 
 /* 🌙 Main content */
 #mainContent {
     display: none;
-    animation: fadeInZoom 1.5s ease;
+    padding: 15px;
 }
 
+/* Cards */
 .card {
     background: rgba(255,255,255,0.1);
-    margin: 20px;
-    padding: 20px;
-    border-radius: 15px;
+    margin: 15px auto;
+    padding: 15px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
 }
 
 /* Animations */
@@ -79,15 +84,23 @@ button:hover {
     from { opacity: 0; transform: scale(0.8); }
     to { opacity: 1; transform: scale(1); }
 }
+
+/* Footer */
 footer {
   position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;
-  background-color:radial-gradient(circle, #1a2a3a, #0f2027);
+  background: #0f2027;
   color: white;
-  padding: 10px;
-  font-size: 14px;
+  padding: 8px;
+  font-size: 12px;
+}
+
+/* 📱 Mobile fix */
+@media (max-width: 600px) {
+    h1 { font-size: 24px; }
+    button { width: 90%; }
 }
 </style>
 
@@ -110,7 +123,8 @@ for(let i=0;i<30;i++){
     <h1>🎁 EID al-Fitr</h1>
     <button onclick="openEid()">EID Ul-fitr prayer details🕌</button>
     <h2>greeting ramzan 🌙</h2>
-    <h3>🌙 Eid ul-Fitr Sunnah </h3> <h4>
+    <h3>🌙 Eid ul-Fitr Sunnah </h3> 
+    <h4>
 1.Eat dates before going for the Eid prayer (preferably in odd numbers). <br>
 2.Perform Ghusl (take a bath) and maintain cleanliness before the prayer. <br>
 3.Wear your best and clean clothes on Eid day. <br>
@@ -118,9 +132,9 @@ for(let i=0;i<30;i++){
 5.Recite the Takbir (“Allahu Akbar…”) on the way to the prayer. <br>
 6.Use one route to go and a different route to return from the prayer. <br>
 7.Give Zakat al-Fitr before the Eid prayer to help the poor. <br>
-8.Do not fast on the day of Eid and celebrate with happiness.</h4>
- <p style="text-align: center;
- padding-top: 50px;">created by BAARI</p>
+8.Do not fast on the day of Eid and celebrate with happiness.
+</h4><br>
+ <p>created by BAARI</p>
 
 </div>
 
@@ -133,19 +147,19 @@ for(let i=0;i<30;i++){
     <div class="card">
         <h2>ASSALAMU ALAIKUM</h2>
         <h2>🕌 Prayer Timing</h2>
+        <h2>date:21/3/2026</h2>
+        <h2>day:saturday</h2>
+        <h2>shawwal:#1</h2>
         <h2>girls:08:00/AM <br>boys:09:00/AM</h2>
         <h2>place:P.R PATTINAM,Jumma masjid 🕌</h2>
-
-        
-        
     </div>
 
     <div class="card">
         <h2>📿 Eid Special Dua</h2>
         <p>
-          اللَّهُمَّ تَقَبَّلْ مِنَّا وَمِنكُمْ وَاجْعَلْنَا مِنَ الصَّالِحِينَ وَاغْفِرْ لَنَا وَلِوَالِدِينَا
-      <br>
-          Allahumma taqabbal minna wa minkum,
+اللَّهُمَّ تَقَبَّلْ مِنَّا وَمِنكُمْ وَاجْعَلْنَا مِنَ الصَّالِحِينَ وَاغْفِرْ لَنَا وَلِوَالِدِينَا
+<br>
+Allahumma taqabbal minna wa minkum,
 waj‘alna mina as-saliheen,
 waghfir lana wa li walidayna  
         </p>
@@ -158,19 +172,21 @@ waghfir lana wa li walidayna
     <source src="https://www.nooresunnat.com/Audio/Others/Eid%20Takbeer%20-%20Allahu%20Akbar%20Kabira.MP3" type="audio/mpeg">
 </audio>
 
-   
+<footer>
+✨ Created by BAARI
+</footer>
 
 <script>
 function openEid(){
     document.getElementById("welcomeScreen").style.display="none";
     document.getElementById("mainContent").style.display="block";
 
-    // play sound
     document.getElementById("eidAudio").play();
+
+    if (navigator.vibrate) {
+        navigator.vibrate(200);
+    }
 }
-
-
-
 </script>
 
 </body>
